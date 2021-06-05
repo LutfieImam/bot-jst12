@@ -14,12 +14,19 @@ function normalized(data){ // i & r
   function argMax(res){
     label = "NORMAL"
     if(argMax(res) == 1)
-      label = "OVER VOLTAGE"
-    if(argMax(res) == 2)
+        cls_data = []
+      for(i=0; i<res.length; i++){
+          cls_data[i] = res[i]
+      }
+      console.log(cls_data, argMax(cls_data));
+       if(argMax(cls_data) == 1){
+           label = "OVER VOLTAGE"
+    if(argMax(cls_data) == 0){
       label = "DROP VOLTAGE"
   }
   return label
-  
+       }
+      
 async function classify(data){
     let in_dim = 4; //i r v p
     
